@@ -1,0 +1,17 @@
+td {
+  height: 50px;
+  width: 50px;
+}
+
+.black {
+  background-color: black;
+}
+.player {
+  background-color: green;  
+  border-radius: 15px;
+}
+
+table { 
+  border-collapse: collapse;
+  border: solid black 3px;
+}

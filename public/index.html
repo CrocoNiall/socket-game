@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Maze</title>
+  </head>
+  <body>
+
+    <table>
+      <tbody>
+        <tr>
+          <td data-col="0" data-index="0" class="player"> </td>
+          <td data-col="0" data-index="1"> </td>
+          <td data-col="0" data-index="2"> </td>
+          <td data-col="0" data-index="3"> </td>
+          <td data-col="0" data-index="4"> </td>
+          <td data-col="0" data-index="5"> </td>
+          <td data-col="0" data-index="6"> </td>
+          <td data-col="0" data-index="7"> </td>
+          <td data-col="0" data-index="8"> </td>
+          <td data-col="0" data-index="9"> </td>
+          <td data-col="0" data-index="10"> </td>
+          <td data-col="0" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="1" data-index="0"> </td>
+          <td data-col="1" data-index="1"> </td>
+          <td data-col="1" data-index="2"> </td>
+          <td data-col="1" data-index="3"> </td>
+          <td data-col="1" data-index="4"> </td>
+          <td data-col="1" data-index="5"> </td>
+          <td data-col="1" data-index="6"> </td>
+          <td data-col="1" data-index="7"> </td>
+          <td data-col="1" data-index="8"> </td>
+          <td data-col="1" data-index="9"> </td>
+          <td data-col="1" data-index="10"> </td>
+          <td data-col="1" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="2" data-index="0"> </td>
+          <td data-col="2" data-index="1"> </td>
+          <td data-col="2" data-index="2"> </td>
+          <td data-col="2" data-index="3"> </td>
+          <td data-col="2" data-index="4"> </td>
+          <td data-col="2" data-index="5"> </td>
+          <td data-col="2" data-index="6"> </td>
+          <td data-col="2" data-index="7"> </td>
+          <td data-col="2" data-index="8"> </td>
+          <td data-col="2" data-index="9"> </td>
+          <td data-col="2" data-index="10"> </td>
+          <td data-col="2" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="3" data-index="0"> </td>
+          <td data-col="3" data-index="1"> </td>
+          <td data-col="3" data-index="2"> </td>
+          <td data-col="3" data-index="3"> </td>
+          <td data-col="3" data-index="4"> </td>
+          <td data-col="3" data-index="5"> </td>
+          <td data-col="3" data-index="6"> </td>
+          <td data-col="3" data-index="7"> </td>
+          <td data-col="3" data-index="8"> </td>
+          <td data-col="3" data-index="9"> </td>
+          <td data-col="3" data-index="10"> </td>
+          <td data-col="3" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="4" data-index="0"> </td>
+          <td data-col="4" data-index="1"> </td>
+          <td data-col="4" data-index="2"> </td>
+          <td data-col="4" data-index="3"> </td>
+          <td data-col="4" data-index="4"> </td>
+          <td data-col="4" data-index="5"> </td>
+          <td data-col="4" data-index="6"> </td>
+          <td data-col="4" data-index="7"> </td>
+          <td data-col="4" data-index="8"> </td>
+          <td data-col="4" data-index="9"> </td>
+          <td data-col="4" data-index="10"> </td>
+          <td data-col="4" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="5" data-index="0"> </td>
+          <td data-col="5" data-index="1"> </td>
+          <td data-col="5" data-index="2"> </td>
+          <td data-col="5" data-index="3"> </td>
+          <td data-col="5" data-index="4"> </td>
+          <td data-col="5" data-index="5"> </td>
+          <td data-col="5" data-index="6"> </td>
+          <td data-col="5" data-index="7"> </td>
+          <td data-col="5" data-index="8"> </td>
+          <td data-col="5" data-index="9"> </td>
+          <td data-col="5" data-index="10"> </td>
+          <td data-col="5" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="6" data-index="0"> </td>
+          <td data-col="6" data-index="1"> </td>
+          <td data-col="6" data-index="2"> </td>
+          <td data-col="6" data-index="3"> </td>
+          <td data-col="6" data-index="4"> </td>
+          <td data-col="6" data-index="5"> </td>
+          <td data-col="6" data-index="6"> </td>
+          <td data-col="6" data-index="7"> </td>
+          <td data-col="6" data-index="8"> </td>
+          <td data-col="6" data-index="9"> </td>
+          <td data-col="6" data-index="10"> </td>
+          <td data-col="6" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="7" data-index="0"> </td>
+          <td data-col="7" data-index="1"> </td>
+          <td data-col="7" data-index="2"> </td>
+          <td data-col="7" data-index="3"> </td>
+          <td data-col="7" data-index="4"> </td>
+          <td data-col="7" data-index="5"> </td>
+          <td data-col="7" data-index="6"> </td>
+          <td data-col="7" data-index="7"> </td>
+          <td data-col="7" data-index="8"> </td>
+          <td data-col="7" data-index="9"> </td>
+          <td data-col="7" data-index="10"> </td>
+          <td data-col="7" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="8" data-index="0"> </td>
+          <td data-col="8" data-index="1"> </td>
+          <td data-col="8" data-index="2"> </td>
+          <td data-col="8" data-index="3"> </td>
+          <td data-col="8" data-index="4"> </td>
+          <td data-col="8" data-index="5"> </td>
+          <td data-col="8" data-index="6"> </td>
+          <td data-col="8" data-index="7"> </td>
+          <td data-col="8" data-index="8"> </td>
+          <td data-col="8" data-index="9"> </td>
+          <td data-col="8" data-index="10"> </td>
+          <td data-col="8" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="9" data-index="0"> </td>
+          <td data-col="9" data-index="1"> </td>
+          <td data-col="9" data-index="2"> </td>
+          <td data-col="9" data-index="3"> </td>
+          <td data-col="9" data-index="4"> </td>
+          <td data-col="9" data-index="5"> </td>
+          <td data-col="9" data-index="6"> </td>
+          <td data-col="9" data-index="7"> </td>
+          <td data-col="9" data-index="8"> </td>
+          <td data-col="9" data-index="9"> </td>
+          <td data-col="9" data-index="10"> </td>
+          <td data-col="9" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="10" data-index="0"> </td>
+          <td data-col="10" data-index="1"> </td>
+          <td data-col="10" data-index="2"> </td>
+          <td data-col="10" data-index="3"> </td>
+          <td data-col="10" data-index="4"> </td>
+          <td data-col="10" data-index="5"> </td>
+          <td data-col="10" data-index="6"> </td>
+          <td data-col="10" data-index="7"> </td>
+          <td data-col="10" data-index="8"> </td>
+          <td data-col="10" data-index="9"> </td>
+          <td data-col="10" data-index="10"> </td>
+          <td data-col="10" data-index="11"> </td>
+        </tr>
+        <tr>
+          <td data-col="11" data-index="0"> </td>
+          <td data-col="11" data-index="1"> </td>
+          <td data-col="11" data-index="2"> </td>
+          <td data-col="11" data-index="3"> </td>
+          <td data-col="11" data-index="4"> </td>
+          <td data-col="11" data-index="5"> </td>
+          <td data-col="11" data-index="6"> </td>
+          <td data-col="11" data-index="7"> </td>
+          <td data-col="11" data-index="8"> </td>
+          <td data-col="11" data-index="9"> </td>
+          <td data-col="11" data-index="10"> </td>
+          <td data-col="11" data-index="11"> </td>
+        </tr>
+      </tbody>
+    </table>
+    <script src="main.js"></script>
+  </body>
+</html>
